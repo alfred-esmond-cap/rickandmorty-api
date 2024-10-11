@@ -5,20 +5,24 @@ let filters = { name: "", status: "", species: "", type: "", gender: "" };
 const getCharacters = async (page = 1, filters = {}) => {
   let url = `https://rickandmortyapi.com/api/character?page=${page}`;
 
-  filters.name || filters.status || filters.species || filters.type || filters.gender
-  ? (url += `&${new URLSearchParams(filters).toString()}`)
-  : null;
+  const { name, status, species, type, gender } = filters;
+
+  name || status || species || type || gender
+    ? (url += `&${new URLSearchParams(filters).toString()}`)
+    : null;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
-    totalPages = data.info.pages;
-    return data.results;
+    const { info, results } = data;
+    totalPages = info.pages;
+    return results;
   } catch (error) {
     console.error("Error fetching characters:", error);
     return null;
   }
 };
+
 
 const loadCharacters = async () => {
   const characters = await getCharacters(currentPage, filters);
@@ -31,7 +35,9 @@ const displayCharacters = (characters) => {
 
   characterListContainer.innerHTML = characters
     .map(
-      ({ id, name, species, origin, image }) => `
+      (character) => {
+        const { id, name, species, origin, image } = character;
+        return `
         <div class="character" id="${id}">
           <div class="character-image"><img src="${image}" alt="${name}" /></div>
           <div class="basic-info">
@@ -39,7 +45,8 @@ const displayCharacters = (characters) => {
             <p>Species: ${species}</p>
             <p>Origin: ${origin.name}</p>
           </div>
-        </div>`
+        </div>`;
+      }
     )
     .join("");
 
@@ -50,6 +57,7 @@ const displayCharacters = (characters) => {
     });
   });
 };
+
 
 const getFiltersForm = () => ({
   name: document.getElementById("name").value.trim(),
