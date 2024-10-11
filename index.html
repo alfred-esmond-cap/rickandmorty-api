@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick & Morty</title>
+    <link rel="icon" href="assets/images/icon.png" type="image/png" />
+    <link rel="stylesheet" href="assets/styles/app.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="logo" />
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="filter-box">
+        <div class="filters">
+          <form class="filter-form" id="filter-form">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Example: Rick, Morty, Summer, Mr. Poopybutthole, Pickle Rick, Evil Morty, Squanchy"
+            />
+
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+              <option value="">All</option>
+              <option value="alive">Alive</option>
+              <option value="dead">Dead</option>
+              <option value="unknown">Unknown</option>
+            </select>
+
+            <label for="species">Species:</label>
+            <input
+              type="text"
+              id="species"
+              name="species"
+              placeholder="Example: Human, Alien, Robot, Cronenberg, Poopybutthole, Unknown, Humanoid, Disease"
+            />
+
+            <label for="type">Type:</label>
+            <input
+              type="text"
+              id="type"
+              name="type"
+              placeholder="Example: Parasite, Hybrid, Cyborg, Humanoid, Superhuman, Genetic Experiment"
+            />
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+              <option value="">All</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="genderless">Genderless</option>
+              <option value="unknown">Unknown</option>
+            </select>
+
+            <div class="button-box">
+              <div class="button-box">
+                <button class="filter-button" type="submit" id="filter">
+                  Filter
+                </button>
+                <button class="filter-button" type="submit" id="reset">
+                  Reset
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="pagination-box">
+        <div class="pagination-info" id="pagination-info"></div>
+        <nav class="pagination" id="pagination">
+          <a href="#" id="prev-page" class="arrow">&#8592;</a>
+          <a href="#" id="next-page" class="arrow">&#8594;</a>
+        </nav>
+      </div>
+
+      <div id="all">
+        <div class="all-characters" id="character-list"></div>
+      </div>
+    </main>
+
+    <script src="src/app.js"></script>
+    </body>
+</html>

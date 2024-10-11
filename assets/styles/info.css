@@ -1,0 +1,53 @@
+:root {
+  --eden: #0d4a49;
+  --key-lime-pie: #aed828;
+  --fern-green: #4f8034;
+  --blue-lagoon: #047f90;
+  --sushi: #6e9e34;
+  --apple: #649434;
+  --cerulean: #04b4cb;
+  --pacific-blue: #04a3b8;
+  --bondi-blue: #0494a4;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-page {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.complete-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25rem;
+  height: 37rem;
+  text-align: center;
+  background-color: var(--key-lime-pie);
+  border-radius: 1rem;
+  box-shadow: 0 0.2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.complete-data img {
+  height: 300px;
+  margin: 1rem;
+}
+
+.complete-data-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  color: var(--eden);
+}
+
+.complete-data-info p {
+  font-weight: bold;
+  margin: 0.2rem 0;
+}
